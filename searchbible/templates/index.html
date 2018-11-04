@@ -1,13 +1,22 @@
-<!doctype html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %}Search Bible Online{% endblock %}
+
+{% block content %}
+    <div class="center-box-outer">
+        <div class="search-box center-box-inner text-center">
+{#            <h1>searb</h1>#}
+            <form method="post" enctype="multipart/form-data" action="{% url 'result' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input name="keyword" type="text" class="form-control" id="keyword" autofocus>
+                </div>
+                <button type="submit" class="btn btn-light">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
