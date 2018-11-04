@@ -208,16 +208,15 @@ class Verse(models.Model):
     chapter_number = models.CharField(max_length=3)  # bible chapter number
     number = models.IntegerField()  # verse number
     content = models.TextField()  # verse content
-    loc = models.CharField(max_length=30)
+    loc = models.CharField(max_length=30)  # verse location
 
     objects = VerseManager()
 
     def __str__(self):
-        return f'{self.book_name}{self.chapter_number}:{self.number} {self.content} (self.version)'
+        return f'{self.book_name}{self.chapter_number}:{self.number} {self.content} ({self.version})'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # verse location
         self.book_name_en = self.book.name_en
         self.book_name_abbr = FULL_TO_ABBR[self.book_name]
         self.loc_list = [self.book.version, self.book_name, self.chapter_number, self.number]
