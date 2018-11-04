@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+// index search input box 한글
+.search-box {
+  width: 400px;
+  padding: 15px;
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+
+  .form-group {
+    //input {
+    //  background-color: tint(lightgreen, 50%);
+    //  border: 2px lightgreen solid;
+    //}
+  }
+}
+
+.center-box-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.center-box-inner {
+  display: block;
+}
